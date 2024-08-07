@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="logo">
+        GE<img src="assets/globe-solid.svg" alt="Globe" class="filter" width="23" height="23" style="margin-inline-end: 2px; padding-block-start: 1px">GAME
+    </div>
+    <button type="button" (click)="toggleTheme()">
+        <img id="light" src="assets/sun-solid.svg" alt="Light theme" class="filter" width="16" height="16" *ngIf="theme === 'light'">
+        <img id="dark" src="assets/moon-solid.svg" alt="Dark theme" class="filter" width="16" height="16" *ngIf="theme === 'dark'">
+    </button>
+</div>

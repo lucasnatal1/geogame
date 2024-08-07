@@ -1,0 +1,42 @@
+.filter {
+  filter: invert(67%) sepia(8%) saturate(1563%) hue-rotate(349deg)
+    brightness(90%) contrast(88%); /* brown */
+}
+
+.container {
+  display: grid;
+  grid-template-areas: ". logo theme";
+  grid-template-columns: 2rem 1fr 2rem;
+}
+
+.logo {
+  grid-area: logo;
+  justify-self: center;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--clr-text);
+}
+
+button {
+  grid-area: theme;
+  justify-self: center;
+  display: inline-block;
+}
+
+::ng-deep :root:has(#light.filter) {
+  --clr-body-bg: #FEFAE0;
+  --clr-btn-bg: #FEFAE0;
+  --clr-text: #A79277;
+  --clr-text-hidden: #fff;
+  --clr-hover: #B8946F;
+  --clr-ans-right: #6aaa64;
+}
+
+::ng-deep :root:has(#dark.filter) {
+  --clr-body-bg: #1A3636;
+  --clr-btn-bg: #1A3636;
+  --clr-text: #D6BD98;
+  --clr-text-hidden: #fff;
+  --clr-hover: #B8946F;
+  --clr-ans-right: #677D6A;
+}

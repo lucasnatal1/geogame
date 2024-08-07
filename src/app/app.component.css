@@ -1,0 +1,24 @@
+.blurry-img {
+  filter: blur(50px);
+}
+
+.blurry-text {
+  color: transparent;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.teste {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(50px);
+    padding: 2px 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-white {
+    filter: invert(100%) sepia(0%) saturate(940%) hue-rotate(199deg) brightness(118%) contrast(100%);
+}

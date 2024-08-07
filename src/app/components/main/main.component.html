@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="grid-board">
+    <div class="progress-container" tabindex="-1" #firstFocus>
+      <span class="match">{{ countryIndex + 1 }}/{{ matchSize }}</span>
+      <span class="pts">+{{ points }}</span>
+      <span class="pts">{{ totalPoints }}</span>
+    </div>
+
+    <div class="flex-container flag-container">
+      <img [src]="country?.flags?.png" alt="Country flag" class="flag" />
+      <div
+        class="hidden-hint"
+        *ngIf="isFlagHidden"
+        (click)="openHint('f')"
+        (keyup.enter)="openHint('f')"
+        (mouseover)="imgHints[0] = imgHoverPath"
+        (mouseout)="imgHints[0] = imgHiddenPath"
+        tabindex="0"
+      >
+        <span class="hidden-hint__title"> BANDEIRA </span>
+        <img
+          [src]="imgHints[0]"
+          alt="Click to open info"
+          class="filter-white"
+        />
+        <span class="hidden-hint__points"> {{ "-" + flagCost + " pts" }} </span>
+      </div>
+    </div>
+
+    <div class="flex-container capital-container">
+      <div class="capital">
+        <h3>Capital:</h3>
+        <p>
+          {{
+            country?.capital != null
+              ? country?.capital[0]
+              : "Não possui capital."
+          }}
+        </p>
+      </div>
+      <div
+        class="hidden-hint"
+        *ngIf="isCapitalHidden"
+        (click)="openHint('c')"
+        (keyup.enter)="openHint('c')"
+        (mouseover)="imgHints[1] = imgHoverPath"
+        (mouseout)="imgHints[1] = imgHiddenPath"
+        tabindex="0"
+      >
+        <span class="hidden-hint__title"> CAPITAL </span>
+        <img
+          [src]="imgHints[1]"
+          alt="Click to open info"
+          class="filter-white"
+        />
+        <span class="hidden-hint__points">
+          {{ "-" + capitalCost + " pts" }}
+        </span>
+      </div>
+    </div>
+
+    <div class="flex-container borders-container">
+      <div class="borders">
+        <h3>Fronteiras:</h3>
+        <p>{{ bordersToString() }}</p>
+      </div>
+      <div
+        class="hidden-hint"
+        *ngIf="isBordersHidden"
+        (click)="openHint('b')"
+        (keyup.enter)="openHint('b')"
+        (mouseover)="imgHints[2] = imgHoverPath"
+        (mouseout)="imgHints[2] = imgHiddenPath"
+        tabindex="0"
+      >
+        <span class="hidden-hint__title"> FRONTEIRAS </span>
+        <img
+          [src]="imgHints[2]"
+          alt="Click to open info"
+          class="filter-white"
+        />
+        <span class="hidden-hint__points">
+          {{ "-" + bordersCost + " pts" }}
+        </span>
+      </div>
+    </div>
+
+    <div class="options-container">
+      <button
+        type="button"
+        *ngFor="let opt of options; index as i"
+        class="opt-btn"
+        (click)="onGuess(i)"
+        [disabled]="matchOver || !clickable"
+        [ngClass]="{'correct-answer': showCorrectAnswer && options[i] === country.translations.por.common, 'align-self-end': i <= 1, 'align-self-start': i > 1}"
+      >
+        {{ options[i] }}
+      </button>
+    </div>
+  </div>
+</div>

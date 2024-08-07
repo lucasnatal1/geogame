@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  transition: all 0.2s ease-in;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+button {
+  -webkit-appearance: none;
+  border-radius: 0;
+  text-align: inherit;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  color: inherit;
+  font: inherit;
+}
+
+/* :root {
+  --clr-body-bg: #b5c18e;
+  --clr-text: #b99470;
+  --clr-border: #deac80;
+  --clr-ans-wrong: #787c72;
+  --clr-ans-right: #6aaa64;
+} */
+
+body {
+  background: var(--clr-body-bg);
+  min-height: 100vh;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+.container {
+  max-width: 80%;
+  margin-inline: auto;
+  padding-block: 1em;
+}
+
+.flex {
+  display: flex;
+}
